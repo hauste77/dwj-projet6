@@ -87,11 +87,11 @@ exports.like = (req, res, next) => {
     Sauce.findOne( { _id: req.params.id } )
         .then(sauce => {
             switch (like) {
+                
                 case 1:
                     sauce.usersLiked.push( userId );
                     sauce.likes += 1;
                     message = "Vous avez like cette sauce";
-                    
                     break;
                 case 0:
                     if ( sauce.usersDisliked.includes( userId ) ) {
